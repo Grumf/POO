@@ -37,8 +37,14 @@ class GPS {
 	}
 
 	public function avertirPause($tempsTrajet) {
-		$nbPause = round($tempsTrajet / 7200000);
-		return "Il faudra faire ".$nbPause." pause(s) toutes les 2h !<br>";
+
+		if ($tempsTrajet >= 7200000){
+			$nbPause = round($tempsTrajet / 7200000);
+			return "Il faudra faire ".$nbPause." pause(s) toutes les 2h !<br>";
+		}
+		else {
+			return "Pas besoin de faire de pause.";
+		}
 	}
 
 }
